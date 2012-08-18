@@ -1,17 +1,12 @@
 <div id="footer">
     <div class="container">				
         <hr>
-        <p>&copy; 2012 Go Ideate.</p>
+        <p>&copy; 2012 Browse Around
     </div> <!-- /container -->
 </div> <!-- /footer -->
-<script src="js/jquery-1.7.2.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/faq.js"></script>
+<script src="<?=  base_url()?>js/jquery-1.7.2.min.js"></script>
+<script src="<?=  base_url()?>js/bootstrap.js"></script>
 <script>
-
-    $(function () {	
-        $('.faq-list').goFaq ();	
-    });
     $(document).ready(function(){
         initialize();
     });

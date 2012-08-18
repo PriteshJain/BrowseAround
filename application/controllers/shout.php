@@ -12,9 +12,8 @@ class Shout extends CI_Controller {
     }
 
     function index() {
-        $data['title'] = 'ShoutOut / Home';
-        $data['content'] = 'home';
-        $this->load->view('index');
+        $data['title'] = 'BrowseAround | Home';        
+        $this->load->view('index', $data);
     }
 
 }
