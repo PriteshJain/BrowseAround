@@ -7,7 +7,7 @@
             </h1>
             <div class="widget">
                 <div class="widget-content">                                     
-                    <div class="container shouts">
+                    <div class="container shouts" id="shouts">
                         <div class="row">
                             <div class="span1">
                                 <div class="account-avatar">
