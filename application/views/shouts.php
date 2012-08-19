@@ -8,6 +8,11 @@
             <div class="widget">
                 <div class="widget-content">                                     
                     <div class="container shouts" id="shouts">
+                        <?php
+                        foreach ($shoutData as $s) {
+                            $this->load->view('singleShout', $s);
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
