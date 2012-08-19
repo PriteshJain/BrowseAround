@@ -24,17 +24,15 @@ class Shout extends CI_Controller {
             'lat' => (int) $this->input->post('latitude'),
             'long' => (int) $this->input->post('longitude')
         );
-
-        $location = array((int) $this->input->post('latitude'),
-            (int) $this->input->post('longitude'));
+        
         $data['shout'] = $this->input->post('shout');
         $shoutData = $this->shout_model->saveShout($data);
 
-        var_dump($this->shout_model->getNearbyShouts($location));
+        $shout = $this->load->view('singleShout', $shoutData[count($shoutData) - 1]);
         $result = array();
         if (count($shoutData)) {
             $result['valid'] = TRUE;
-            $result['shout'] = $this->load->view('singleShout', $shoutData[count($shoutData) - 1]);
+            $result['shout'] = $shout;
         } else {
             $result['valid'] = FALSE;
             $result['errors'] = 'error while inserting';
