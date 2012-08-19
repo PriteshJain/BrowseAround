@@ -1,4 +1,7 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 /*
   | -------------------------------------------------------------------
   | AUTO-LOADER
@@ -37,7 +40,7 @@
   |
  */
 
-$autoload['packages'] = array(APPPATH.'third_party');
+$autoload['packages'] = array(APPPATH . 'third_party');
 
 
 /*
@@ -52,7 +55,7 @@ $autoload['packages'] = array(APPPATH.'third_party');
   |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
  */
 
-$autoload['libraries'] = array('session','database');
+$autoload['libraries'] = array('session','Mongo_db');
 
 
 /*
@@ -64,7 +67,7 @@ $autoload['libraries'] = array('session','database');
   |	$autoload['helper'] = array('url', 'file');
  */
 
-$autoload['helper'] = array('url','form', 'smiley');
+$autoload['helper'] = array('url', 'form');
 
 
 /*
@@ -80,7 +83,7 @@ $autoload['helper'] = array('url','form', 'smiley');
   |
  */
 
-$autoload['config'] = array();
+$autoload['config'] = array('mongodb');
 
 
 /*
@@ -109,7 +112,7 @@ $autoload['language'] = array();
   |
  */
 
-$autoload['model'] = array();
+$autoload['model'] = array('shout_model');
 
 
 /* End of file autoload.php */

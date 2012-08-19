@@ -42,10 +42,10 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'pricebaba';
-$db['default']['database'] = 'pricebaba';
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['username'] = '';
+$db['default']['password'] = '';
+$db['default']['database'] = 'browsearound';
+$db['default']['dbdriver'] = 'mongodb';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
