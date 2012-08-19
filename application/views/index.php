@@ -11,6 +11,8 @@
                         <?= $this->load->view('shout'); ?>
                     </div>
                     <div class="span9">
+                   
+                 
                         
                     </div>
                 </div>    

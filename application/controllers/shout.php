@@ -12,31 +12,27 @@ class Shout extends CI_Controller {
     }
 
     function index() {
+
         $data['title'] = 'BrowseAround | Home';
         $this->load->view('index', $data);
     }
 
     function saveShout() {
-
-
+        $result = array();
         $data = array();
         $data['loc'] = array(
             'lat' => (float) $this->input->post('latitude'),
             'long' => (float) $this->input->post('longitude')
-        );
-
-        $location = array((float) $this->input->post('latitude'),
-            (int) $this->input->post('longitude'));
+            );
         $data['shout'] = $this->input->post('shout');
+        $data['shouted_at'] = new MongoDate(strtotime(date("F j, Y, g:i a")));
+
         $shoutData = $this->shout_model->saveShout($data);
 
-        $result = array();
         if (count($shoutData)) {
             $result = $this->load->view('singleShout', $shoutData[count($shoutData) - 1]);
         } else {
-            // $result = FALSE;
             $result = 'error while inserting';
-
         }
         echo $result;
 
@@ -44,12 +40,10 @@ class Shout extends CI_Controller {
 
     function getShouts() {
        $location = array((float) $this->input->post('latitude'),
-                 (int) $this->input->post('longitude'));
-        $data['shout'] = $this->input->post('shout');
-        $shoutData = $this->shout_model->saveShout($data);
-
-        var_dump($this->shout_model->getNearbyShouts($location));
-    }
+          (float) $this->input->post('longitude'));
+       $this->session->set_userdata('cords', $location);
+       $data['shoutData'] = $this->shout_model->getNearbyShouts($location);
+       $this->load->view('shouts', $shoutData[count($shoutData) - 1]);
+   }
 }
-
 ?>

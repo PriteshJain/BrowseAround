@@ -15,28 +15,47 @@
         data = {
             'latitude' : $('#latitude').val(),
             'longitude' : $('#longitude').val(),
-            'shout' : $('#shoutOut').val()
         }
-        
-        // $.ajax({
-        //     url: "<?= site_url('index.php/shout/saveShout'); ?>",
-        //     type: "post",
-        //     data: data,
-        //     dataType: "html",
-        //     success: function(response) {                                      
-        //         $('#shouts').prepend(response);
-        //     }
-        // });
+         $.ajax({
+            url: "<?= site_url('index.php/shout/saveShout'); ?>",
+            type: "post",
+            data: data,
+            dataType: "html",
+            success: function(response) {                                      
+                $('#shouts').prepend(response);
+            }
+        });
         // prevents from refreshing the page
         return false;
     });
+
+
+  function getShouts() {
+        data = {
+            'latitude' : $('#latitude').val(),
+            'longitude' : $('#longitude').val(),
+        }
+        
+        $.ajax({
+            url: "<?= site_url('index.php/shout/getShouts'); ?>",
+            type: "post",
+            data: data,
+            dataType: "html",
+            success: function(response) {                                      
+                $('#shouts').prepend(response);
+            }
+        });
+        
+          
+ 
+  }
 
     function initialize() {            
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 $("#latitude").val(position.coords.latitude);
                 $("#longitude").val(position.coords.longitude);
-                    
+                getShouts();
             }, function() {
                 handleNoGeolocation(true);
             });

@@ -17,9 +17,8 @@ class Shout_model extends CI_Model {
         return $query;
     }
     
-     function getNearbyShouts($location) {
-         
-        $query = $this->mongo_db->where_near('loc', $location)->get('shouts');
+    function getNearbyShouts($location) {
+        $query = $this->mongo_db->where_near('loc', $location , 500 )->get('shouts');
         return $query;
     }
 

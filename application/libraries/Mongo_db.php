@@ -368,9 +368,17 @@ class Mongo_db {
      *
      * 	@usage : $this->mongo_db->where_near('foo', array('50','50'))->get('foobar');
      */
-    function where_near($field = '', $co = array()) {
+    // function where_near($field = '', $co = array()) {
+    //     $this->_where_init($field);
+    //     $this->wheres[$field]['$near'] = $co;
+    //     return ($this);
+    // }
+
+    public function where_near($field = '', $co = array(), $max = '')
+    {
         $this->_where_init($field);
         $this->wheres[$field]['$near'] = $co;
+        $this->wheres[$field]['$maxDistance'] = $max;
         return ($this);
     }
 
@@ -826,7 +834,7 @@ class Mongo_db {
       }
 
       return $this;
-      } */
+  } */
 
     /**
      * 	--------------------------------------------------------------------------------
@@ -876,7 +884,7 @@ class Mongo_db {
       $this->updates['$pullAll'] = array($field => $value);
 
       return $this;
-      } */
+  } */
 
     /**
      * 	--------------------------------------------------------------------------------
