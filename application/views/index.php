@@ -7,8 +7,14 @@
             <div class="container">
                 <div class="row">
                     <?= $this->load->view('sidebar'); ?>
-                    <div class="span9">
-                        <?= $this->load->view('shout'); ?>
+                    <div class="span8">
+                        <?php
+                        $data = array(
+                            'replyFrom' => 0,
+                            'replyFor' => 0
+                        );
+                        echo $this->load->view('shout', $data);
+                        ?>
                     </div>
                 </div>    
             </div> 

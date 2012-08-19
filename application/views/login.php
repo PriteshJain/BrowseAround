@@ -1,22 +1,15 @@
+<!DOCTYPE html>  
 
-
- <html>
 <head>
-<title>Facebook Sweetness</title>
+ <title>CodeIgniter Facebook OAuth</title>
+ <link rel="stylesheet" href="assets/css/fb_app.css" type="text/css" />
 </head>
+
 <body>
-<h1>Login Via Facebook</h1>
-
-<?php if (@$user_profile): ?>
-<pre>
-<?php echo print_r($user_profile, TRUE) ?>
-</pre>
-<a href="<?php echo $logout_url ?>">Logout of this thing</a>
-<?php else: ?>
-<h2>Welcome to this facebook thing, please login below</h2>
-<a href="<?php echo $login_url ?>">Login to this thing</a>
-<?php endif; ?>
-
+    <p>
+        <a href="<?= $data['auth_url'] ?>">
+            <img src="assets/images/flogin.gif" alt="Facebook Login" />
+        </a>
+    </p>
 </body>
-
-</html>
+</html> 

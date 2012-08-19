@@ -1,22 +1,37 @@
 <div id="footer">
     <div class="container">				
         <hr />
-        <p>&copy; 2012 Browse Around
+        <p>&copy; 2012 &nbsp;<i class="icon-leaf"></i>&nbsp;GovindaBros.org
     </div>
 </div> 
 <script src="<?= base_url() ?>assets/js/jquery-1.7.2.min.js"></script>
+<script src="<?= base_url() ?>assets/js/timeago.yarp.js" type="text/javascript" charset="utf-8" > </script>
 <script src="<?= base_url() ?>assets/js/bootstrap.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        initialize();        
+        initialize();    
+        jQuery("time.timeago").timeago();
     });
 
-    $('#shout-out').on('click', function() {
+    function shoutOutToThread(threadID){
+        $('.shoutBox_' + threadID).toggle();
+    }
+    
+    function viewConversation(threadID) {
+        $('.conversations_' + threadID).toggle();
+    }
+    
+    function reportThread(threadID){
         
+    }
+
+    $('#shout-out').on('click', function() {        
         data = {
             'latitude' : $('#latitude').val(),
             'longitude' : $('#longitude').val(),
-            'shout' : $('#shoutOut').val()
+            'shout' : $('#shoutOut').val(),
+            'replyFor' : $('#replyFor').val(),
+            'replyFrom' : $('#replyFrom').val()
         }
         
         $.ajax({
@@ -25,11 +40,11 @@
             data: data,
             dataType: "html",
             success: function(response) {                                      
-               $('#shouts').prepend(response);
+                $('#shouts').prepend(response);
             }
         });
                        
- 
+        $('#shoutOut').val('');              
         // prevents from refreshing the page
         return false;
     });

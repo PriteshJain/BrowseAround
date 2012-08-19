@@ -1,4 +1,4 @@
-<div class="span3">
+<div class="well span3">
     <div class="account-container">
         <div class="account-avatar">
             <img src="img/headshot.png" alt="" class="thumbnail" />

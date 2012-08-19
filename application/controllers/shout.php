@@ -22,9 +22,11 @@ class Shout extends CI_Controller {
         $data['loc'] = array(
             'lat' => (float) $this->input->post('latitude'),
             'long' => (float) $this->input->post('longitude')
-            );
+        );
         $data['shout'] = $this->input->post('shout');
         $data['shoutedAt'] = new MongoDate(strtotime(date("F j, Y, g:i a")));
+        $data['replyFor'] = $this->input->post('replyFor');
+        $data['replyFrom'] = $this->input->post('replyFrom');
 
         $shoutData = $this->shout_model->saveShout($data);
 
@@ -34,15 +36,16 @@ class Shout extends CI_Controller {
             $result = 'error while inserting';
         }
         echo $result;
-
     }
 
     function getShouts() {
-       $location = array((float) $this->input->post('latitude'),
-          (float) $this->input->post('longitude'));
-       $this->session->set_userdata('cords', $location);
-       $data['shoutData'] = $this->shout_model->getNearbyShouts($location);
-       $this->load->view('shouts', $data);
-   }
+        $location = array((float) $this->input->post('latitude'),
+            (float) $this->input->post('longitude'));
+        $this->session->set_userdata('cords', $location);
+        $data['shoutData'] = $this->shout_model->getNearbyShouts($location);
+        $this->load->view('shouts', $data);
+    }
+
 }
+
 ?>
