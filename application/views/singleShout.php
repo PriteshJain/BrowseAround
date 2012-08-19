@@ -7,7 +7,7 @@
     <div class="span11">
         <strong>Tirthesh Ganatra</strong> @GanatraT
         <p><?= $shout ?></p>
-        <p><time class="timeago" datetime="<?= new MongoTimestamp($shoutedAt).__to_string() ?>"><?= $shoutedAt ?></time></p>
+        <p><time class="timeago" datetime="<?= $shoutedAt ?>"><?= $shoutedAt ?></time></p>
     </div>
 </div>
 <hr class="span11"/>
