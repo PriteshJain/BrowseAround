@@ -12,7 +12,6 @@ class Shout extends CI_Controller {
     }
 
     function index() {
-
         $data['title'] = 'BrowseAround | Home';
         $this->load->view('index', $data);
     }
@@ -25,7 +24,7 @@ class Shout extends CI_Controller {
             'long' => (float) $this->input->post('longitude')
             );
         $data['shout'] = $this->input->post('shout');
-        $data['shouted_at'] = new MongoDate(strtotime(date("F j, Y, g:i a")));
+        $data['shoutedAt'] = new MongoDate(strtotime(date("F j, Y, g:i a")));
 
         $shoutData = $this->shout_model->saveShout($data);
 
@@ -43,7 +42,7 @@ class Shout extends CI_Controller {
           (float) $this->input->post('longitude'));
        $this->session->set_userdata('cords', $location);
        $data['shoutData'] = $this->shout_model->getNearbyShouts($location);
-       $this->load->view('shouts', $shoutData[count($shoutData) - 1]);
+       $this->load->view('shouts', $data);
    }
 }
 ?>

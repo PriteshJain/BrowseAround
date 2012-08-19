@@ -6,8 +6,8 @@
     </div>
     <div class="span11">
         <strong>Tirthesh Ganatra</strong> @GanatraT
-        <p>Bhai chai pilao!!</p>
-        <p>2 minutes ago</p>
+        <p><?= $shout ?></p>
+        <p><time class="timeago" datetime="<?= $shoutedAt?>"><?= $shoutedAt ?></time></p>
     </div>
 </div>
 <hr class="span11"/>

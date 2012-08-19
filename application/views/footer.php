@@ -12,28 +12,33 @@
     });
 
     $('#shout-out').on('click', function() {
+        
         data = {
             'latitude' : $('#latitude').val(),
             'longitude' : $('#longitude').val(),
+            'shout' : $('#shoutOut').val()
         }
-         $.ajax({
+        
+        $.ajax({
             url: "<?= site_url('index.php/shout/saveShout'); ?>",
             type: "post",
             data: data,
             dataType: "html",
             success: function(response) {                                      
-                $('#shouts').prepend(response);
+               $('#shouts').prepend(response);
             }
         });
+                       
+ 
         // prevents from refreshing the page
         return false;
     });
 
 
-  function getShouts() {
+    function getShouts() {
         data = {
             'latitude' : $('#latitude').val(),
-            'longitude' : $('#longitude').val(),
+            'longitude' : $('#longitude').val()
         }
         
         $.ajax({
@@ -42,13 +47,10 @@
             data: data,
             dataType: "html",
             success: function(response) {                                      
-                $('#shouts').prepend(response);
+                $('#shoutsContainer').prepend(response);
             }
         });
-        
-          
- 
-  }
+    }
 
     function initialize() {            
         if(navigator.geolocation) {

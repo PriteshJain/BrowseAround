@@ -10,14 +10,9 @@
                     <div class="span9">
                         <?= $this->load->view('shout'); ?>
                     </div>
-                    <div class="span9">
-                   
-                 
-                        
-                    </div>
                 </div>    
             </div> 
-            <?= $this->load->view('shouts'); ?>
+            <div id="shoutsContainer"></div>
         </div>        
         <?php $this->load->view('footer'); ?>
     </body>
