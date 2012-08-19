@@ -21,5 +21,9 @@ class Shout_model extends CI_Model {
         $query = $this->mongo_db->where_near('loc', $location , 500 )->get('shouts');
         return $query;
     }
-
+	
+	function idFetch($id) {
+    $query = $this->db->where('id', $id);
+    return $this->db->get('users')->num_rows();
 }
+?>
