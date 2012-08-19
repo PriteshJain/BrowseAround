@@ -18,20 +18,15 @@
             'shout' : $('#shoutOut').val()
         }
         
-        $.ajax({
-            url: "<?= site_url('index.php/shout/saveShout'); ?>",
-            type: "post",
-            data: data,
-            dataType: "json",
-            success: function(response) {                                      
-                if(!response.valid) {
-                    $('.error').html(response.errors);                        
-                } else {
-                    $('.error').hide();
-                    $('#shouts').prepend(response.shout);
-                }                        
-            }
-        });
+        // $.ajax({
+        //     url: "<?= site_url('index.php/shout/saveShout'); ?>",
+        //     type: "post",
+        //     data: data,
+        //     dataType: "html",
+        //     success: function(response) {                                      
+        //         $('#shouts').prepend(response);
+        //     }
+        // });
         // prevents from refreshing the page
         return false;
     });
@@ -40,7 +35,8 @@
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 $("#latitude").val(position.coords.latitude);
-                $("#longitude").val(position.coords.longitude);    
+                $("#longitude").val(position.coords.longitude);
+                    
             }, function() {
                 handleNoGeolocation(true);
             });
