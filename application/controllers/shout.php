@@ -43,7 +43,6 @@ class Shout extends CI_Controller {
           (float) $this->input->post('longitude'));
        $this->session->set_userdata('cords', $location);
        $data['shoutData'] = $this->shout_model->getNearbyShouts($location);
-       $this->load->view('shouts', $shoutData[count($shoutData) - 1]);
    }
 }
 ?>
