@@ -21,28 +21,35 @@ class Shout extends CI_Controller {
 
         $data = array();
         $data['loc'] = array(
-            'lat' => (int) $this->input->post('latitude'),
-            'long' => (int) $this->input->post('longitude')
+            'lat' => (float) $this->input->post('latitude'),
+            'long' => (float) $this->input->post('longitude')
         );
 
-        $location = array((int) $this->input->post('latitude'),
+        $location = array((float) $this->input->post('latitude'),
             (int) $this->input->post('longitude'));
         $data['shout'] = $this->input->post('shout');
         $shoutData = $this->shout_model->saveShout($data);
 
-        var_dump($this->shout_model->getNearbyShouts($location));
         $result = array();
         if (count($shoutData)) {
-            $result['valid'] = TRUE;
-            $result['shout'] = $this->load->view('singleShout', $shoutData[count($shoutData) - 1]);
+            $result = $this->load->view('singleShout', $shoutData[count($shoutData) - 1]);
         } else {
-            $result['valid'] = FALSE;
-            $result['errors'] = 'error while inserting';
-        }
+            // $result = FALSE;
+            $result = 'error while inserting';
 
-        echo json_encode($result);
+        }
+        echo $result;
+
     }
 
+    function getShouts() {
+       $location = array((float) $this->input->post('latitude'),
+                 (int) $this->input->post('longitude'));
+        $data['shout'] = $this->input->post('shout');
+        $shoutData = $this->shout_model->saveShout($data);
+
+        var_dump($this->shout_model->getNearbyShouts($location));
+    }
 }
 
 ?>
