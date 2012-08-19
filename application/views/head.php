@@ -7,9 +7,9 @@
     <link href="<?= base_url() ?>assets/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
     <link href="<?= base_url() ?>assets/css/font-awesome.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/css/adminia.css" rel="stylesheet"> 
-    <link href="<?= base_url() ?>assets/css/adminia-responsive.css" rel="stylesheet"> 
-    <link href="<?= base_url() ?>assets/css/pages/faq.css" rel="stylesheet"> 
+    <link href="<?= base_url() ?>assets/css/ba.css" rel="stylesheet"> 
+    <link href="<?= base_url() ?>assets/css/ba-responsive.css" rel="stylesheet"> 
+    <link href="<?= base_url() ?>assets/css/pages/style.css" rel="stylesheet"> 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

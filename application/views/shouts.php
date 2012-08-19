@@ -7,10 +7,17 @@
             </h1>
             <div class="widget">
                 <div class="widget-content">                                     
-                    <div class="container shouts" id="shouts">
+                    <div class="container shouts" id="shouts" style="padding: 10px;">
                         <?php
+                        $count = 0;
                         foreach ($shoutData as $s) {
-                            $this->load->view('singleShout', $s);
+                            $s['threadID'] = $count;
+                            if ($count % 5 == 0) {
+                                $this->load->view('myShouts', $s);
+                            } else {
+                                $this->load->view('singleShout', $s);
+                            }
+                            $count++;
                         }
                         ?>
                     </div>
