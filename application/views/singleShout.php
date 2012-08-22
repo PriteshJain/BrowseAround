@@ -8,6 +8,7 @@
         <strong>Tirthesh Ganatra</strong> @GanatraT         
         <p><?= $shout ?></p>
         <p>
+            <?php $threadID = 1 ?>
             <time class="timeago" datetime="<?= date('F j, Y, g:i a', $shoutedAt->sec); ?>"><?= date('F j, Y, g:i a', $shoutedAt->sec); ?></time>
             &nbsp;&nbsp;
             <a class="shout-links" onclick="shoutOutToThread(<?= $threadID; ?>)">
@@ -31,14 +32,17 @@
             $data = array(
                 'replyFrom' => 'myID',
                 'replyFor' => 'threadID'
-            );
+                );
             echo $this->load->view('shout', $data);
             ?>
         </div>
 
         <div id="shout-links" class="conversations_<?= $threadID; ?>">
             <?php
-            $this->load->view('conversations');
+            $conversations = $this->shout_model->showreplies($shout->$id);
+            foreach( $conversations as $conversation) {
+                $this->load->view('conversations',$conversation);
+            }
             ?>
         </div>
     </div>

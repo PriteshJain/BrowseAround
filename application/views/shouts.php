@@ -12,7 +12,8 @@
                         $count = 0;
                         foreach ($shoutData as $s) {
                             $s['threadID'] = $count;
-                            if ($count % 5 == 0) {
+                            $s["_id"];
+                            if (1) {
                                 $this->load->view('myShouts', $s);
                             } else {
                                 $this->load->view('singleShout', $s);

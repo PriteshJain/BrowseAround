@@ -22,9 +22,19 @@ class Shout_model extends CI_Model {
         return $query;
     }
 
+    function shoutreplies($id) {
+        $query = $this->mongo_db->where(array('replyFor' => $id))->get('shouts');
+        return $query;
+    }
+
     function idFetch($id) {
         $query = $this->db->where('id', $id);
         return $this->db->get('users')->num_rows();
     }
+
+    function destroyShout($id){
+         // $query = $this->db->delete(array('_id' => $id));
+    }
+
 }
 ?>

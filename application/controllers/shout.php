@@ -27,6 +27,7 @@ class Shout extends CI_Controller {
         $data['shoutedAt'] = new MongoDate(strtotime(date("F j, Y, g:i a")));
         $data['replyFor'] = $this->input->post('replyFor');
         $data['replyFrom'] = $this->input->post('replyFrom');
+        $data['userDbId'] = $this->session->userdata('userDbId');
 
         $shoutData = $this->shout_model->saveShout($data);
 
@@ -43,6 +44,12 @@ class Shout extends CI_Controller {
             (float) $this->input->post('longitude'));
         $this->session->set_userdata('cords', $location);
         $data['shoutData'] = $this->shout_model->getNearbyShouts($location);
+        $this->load->view('shouts', $data);
+    }
+
+       function destroyShout() {
+        $location = $this->input->post('id');
+        $data['shoutData'] = $this->shout_model->destroyShout($location);
         $this->load->view('shouts', $data);
     }
 

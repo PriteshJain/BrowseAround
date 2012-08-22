@@ -8,12 +8,12 @@
         <p>
             <time class="timeago" datetime="<?= date('F j, Y, g:i a', $shoutedAt->sec); ?>"><?= date('F j, Y, g:i a', $shoutedAt->sec); ?></time>
             &nbsp;&nbsp;
-            <a class="shout-links">
+            <a class="shout-links" data-id = "<?= $_id ?>" data-method='delete'>
                 <i class="icon-trash"></i>
                 Delete Thread		
             </a>
             &nbsp;&nbsp;
-            <a class="shout-links">
+            <a class="shout-links" data-id ="<?= $_id ?>" data-method='view'>
                 <i class="icon-eye-open"></i>
                 View Conversation			
             </a>
